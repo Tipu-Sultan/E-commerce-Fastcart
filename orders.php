@@ -22,27 +22,32 @@
 
   <?php 
   $uid = $_SESSION['user_id'];
+  if (isset($_GET['cancel_order'])) {
+    $oid = mysqli_real_escape_string($con, $_GET['cancel_order']);
+
+    // Perform your database operations here
+    $order_items = mysqli_query($con,"DELETE FROM `order_items` WHERE order_id='$oid' and status='confirmed' ");
+    $confirm_items = mysqli_query($con,"DELETE FROM `confirm` WHERE order_id='$oid'");
+    ?>
+    <script type="text/javascript">
+      window.location.href = "orders.php";
+    </script>
+    <?php
+    exit();
+}
   ?>
   <script>
     document.getElementById("ordersNav").classList.add('active');
-function CancelOrder() {
-  let text = confirm("Are sure to cancel this order then click OK");
-  return text;
-  if (text == true) {
-    <?php
+    function cancelOrder(orderId) {
+    var confirmed = confirm("Are you sure you want to cancel this order?");
 
-  if (isset($_GET['cancel_order'])) {
-    $oid = mysqli_real_escape_string($con,$_GET['cancel_order']);
-
-    $order_items = mysqli_query($con,"DELETE FROM `order_items` WHERE order_id='$oid' and status='confirmed' ");
-    $confirm_items = mysqli_query($con,"DELETE FROM `confirm` WHERE order_id='$oid'");
-
-  }
-  ?>
-  } else {
-    alert("Order Cancellation Abort")
-  }
+    if (confirmed) {
+        window.location.href = "?cancel_order=" + orderId;
+    } else {
+        alert("Order Cancellation Abort");
+    }
 }
+
 </script>
 <?php 
 $counts = mysqli_query($con,"SELECT * FROM confirm WHERE status='pending' and  user_id='$uid'");
@@ -94,7 +99,7 @@ if ($order_counts>0) {
                 <hr class="mb-4" style="background-color: #e0e0e0; opacity: 1;">
                 <div class="row d-flex align-items-center">
                   <div class="col-md-2">
-                    <p class="text-muted mb-0 small"><a href="?cancel_order=<?php echo $row['order_id'] ?>" onclick="CancelOrder()">Cancel Order</a></p>
+                    <p class="text-muted mb-0 small"><a href="javascript:void(0)" onclick="cancelOrder('<?php echo $row['order_id']  ?>')">Cancel Order</a></p>
                     <p class="text-muted mb-0 small mt-4"><a href="order_details.php?order_id=<?php echo $row['order_id'] ?>">See Order</a></p>
                     <?php 
                     if(empty($row['txn_id']))

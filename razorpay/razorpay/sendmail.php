@@ -8,7 +8,7 @@ include('smtp/PHPMailerAutoload.php');
   $mail->SMTPSecure="tls";
   $mail->SMTPAuth=true;
   $mail->Username="tipu@student.iul.ac.in";
-  $mail->Password="TIPUHA1510L4Pwn9_i5iLNnuxXPftv9LmMTq8aBMW";
+  $mail->Password="&ifkv=AYZoVhfiC-2ySP2gzG9_1";
   $mail->SetFrom("tipu@student.iul.ac.in");
   $mail->addAddress("$email");
   $mail->IsHTML(true);

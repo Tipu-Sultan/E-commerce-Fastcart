@@ -32,12 +32,12 @@
                     </div>
                   </a>
                 </div>
-                <div class="card-body">
-                  <marquee behavior="alternate" scrollamount="3">  
+                <div class="card-body text-center">
+                  <!-- <marquee behavior="alternate" scrollamount="3">   -->
                   <a href="" class="text-reset " style="max-width: 150px">
                     <h5 class="card-title mb-3"><?php echo $top['name']?></h5>
                   </a>
-                  </marquee> 
+                  <!-- </marquee>  -->
                   <p class="text-center"><?php echo $top['price'] ." ₹"?></p>
                   <p>
                     <ul class="list-unstyled d-flex justify-content-center text-warning mb-0">
@@ -79,7 +79,7 @@
           $topitem = mysqli_query($con,"SELECT * FROM items order by name asc");
           while($top = mysqli_fetch_assoc($topitem)){
             ?>
-            <div class="col-lg-2 col-md-3 col-sm-4 col-6 mb-4">
+            <div class="col-lg-3 col-md-3 col-sm-4 col-6 mb-4">
               <div class="card">
                 <div
                   class="bg-image hover-zoom ripple ripple-surface ripple-surface-light"
@@ -90,6 +90,7 @@
                     class="w-100"
                     width="200"
                     height="200"
+                    class="img-fluid"
                   />
                   <a href="product_details.php?slug-id=<?php echo $top['slug'] ?>&type=<?php echo $top['type'] ?>">
                     <div class="mask">
@@ -105,12 +106,12 @@
                     </div>
                   </a>
                 </div>
-                <div class="card-body">
-                  <marquee behavior="alternate" scrollamount="3">  
-                  <a href="" class="text-reset " style="max-width: 150px">
-                    <h5 class="card-title mb-3"><?php echo $top['name']?></h5>
+                <div class="card-body text-center">
+                  <!-- <marquee behavior="alternate" scrollamount="3">   -->
+                  <a href="" class="text-reset " >
+                    <h5 ><?php echo $top['name']?></h5>
                   </a>
-                  </marquee> 
+                  <!-- </marquee>  -->
                   <p><?php echo $top['price'] ." ₹"?></p>
                   <p>
                     <ul class="list-unstyled d-flex justify-content-center text-warning mb-0">

@@ -321,8 +321,8 @@ div#chatbox::-webkit-scrollbar{
       success:function(result){
         var login = jQuery.parseJSON(result);
          if(login.error == 'no'){
-          window.location = 'index.php';
-          alert('Login successfully');
+          var currentPage = window.location.href;
+          window.location.href = currentPage;
         }else if(login.error == 'yes'){
           jQuery('#login_msg').html(login.msg);
           jQuery('#login_btn').html('retry');
@@ -389,7 +389,7 @@ div#chatbox::-webkit-scrollbar{
                         <div class="d-flex flex-row align-items-center mb-4">
                           <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
                           <div class="form-outline flex-fill mb-0">
-                            <input type="password" id="password_otp" class="form-control" name="password" placeholder="(az,AZ,09,@!#)" onkeyup="passwrds(this.value)" required=""/>
+                            <input type="password" id="password_otp1" class="form-control" name="password" placeholder="(az,AZ,09,@!#)" onkeyup="passwrds(this.value)" required=""/>
                             <label class="form-label" for="form3Example4c">Password</label>
                           </div>
                         </div>
@@ -398,7 +398,7 @@ div#chatbox::-webkit-scrollbar{
                         <div class="d-flex flex-row align-items-center mb-4">
                           <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
                           <div class="form-outline flex-fill mb-0">
-                            <input type="password" id="password_otp" class="form-control" name="cpassword" required=""/>
+                            <input type="password" id="password_otp2" class="form-control" name="cpassword" required=""/>
                             <label class="form-label" for="form3Example4c">Repeat Password</label>
                           </div>
                         </div>
@@ -425,11 +425,17 @@ div#chatbox::-webkit-scrollbar{
 </div>
 <script type="text/javascript">
   function myFunction() {
-  var x = document.getElementById("password_otp");
-  if (x.type === "password") {
+  var x = document.getElementById("password_otp1");
+  var y = document.getElementById("password_otp2");
+
+  if (x.type === "password" && y.type === "password") {
     x.type = "text";
+    y.type = "text";
+
   } else {
     x.type = "password";
+    y.type = "password";
+
   }
 }
 </script>

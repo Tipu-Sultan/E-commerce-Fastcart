@@ -25,6 +25,21 @@ $uid = $_SESSION['user_id'];
     $cart_value = '';
     }
   ?>
+
+  <script type="text/javascript">
+    flag = 0;
+    function ShowHide() {
+          if (flag == 0) {
+            var myForm = document.getElementById("HideShow");
+          myForm.style.display = "none";
+          flag = 1;
+        }else{
+          var myForm = document.getElementById("HideShow");
+          myForm.style.display = "block";
+          flag = 0;
+        }
+      }
+  </script>
   <!--Main layout-->
   <main class="mt-5 pt-4">
     <div class="container wow fadeIn">
@@ -37,9 +52,11 @@ $uid = $_SESSION['user_id'];
 
         <!--Grid column-->
         <div class="col-md-8 mb-4">
-
+          <?php 
+              if ($total_cart>0) {
+               ?>
           <!--Card-->
-          <div class="card">
+          <div class="card" id="HideShow">
 
             <!--Card content-->
             <form class="card-body" method="post" name="checkout" id="checkout">
@@ -147,27 +164,26 @@ $uid = $_SESSION['user_id'];
                   </div>
 
                 </div>
-                <div>
-                  <input type="radio" name="pin_add" value="<?php echo $address ?>"/>
-                  <span><?php echo $address; ?></span>
-                </div>
                 <!--Grid column-->
 
               </div>
               <!--Grid row-->
               <hr class="mb-4">
-              <?php 
-              if ($total_cart>0) {
-               ?>
-               <button class="btn btn-primary btn-lg btn-block" name="submit" id="checkout_btn">Continue to checkout</button>
-               <?php
-              }
-               ?>
+                             <button class="btn btn-primary btn-lg btn-block" name="submit" id="checkout_btn">Continue to checkout</button>
+               
 
             </form>
 
           </div>
+              <?php
+                }
+               ?>
           <!--/.Card-->
+                <div>
+                  <input type="radio" name="pin_add" value="<?php echo $address ?>"/>
+                  <span><?php echo $address; ?></span>
+                  <button class="btn btn-outline-dark " onclick="ShowHide()">Edit Address</button>
+                </div>
 
         </div>
         <!--Grid column-->

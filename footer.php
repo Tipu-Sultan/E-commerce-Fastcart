@@ -183,9 +183,12 @@ src="bootstrap/js/all-mdb.min.js"
                        var obj = jQuery.parseJSON(result);
                        if(obj.msg=="login")
                        {
-                            window.location.href="index.php";
+                            var currentPage = window.location.href;
+                            window.location.href = currentPage;
                        }else if(obj.error=="login"){
-                            window.location.href="index.php";
+                            var currentPage = window.location.href;
+                            window.location.href = currentPage;
+
                        }
                     }
                 });

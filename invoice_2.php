@@ -1,4 +1,31 @@
 <?php 
+
+echo "<br/>";
+echo "<br/>";
+
+echo $URI = $_SERVER['REQUEST_URI'];
+echo "<br/>";
+echo $URI = $_SERVER['PHP_SELF'];
+echo "<br/>";
+echo $URI = $_SERVER['SERVER_NAME'];
+echo "<br/>";
+echo $URI = $_SERVER['HTTP_USER_AGENT'];
+echo "<br/>";
+echo $URI = $_SERVER['REMOTE_ADDR'];
+echo "<br/>";
+echo $URI = $_SERVER['REQUEST_METHOD'];
+echo "<br/>";
+echo $URI = $_SERVER['REQUEST_TIME'];
+echo "<br/>";
+echo $URI = $_SERVER['SERVER_PORT'];
+echo "<br/>";
+echo $URI = $_SERVER['HTTP_HOST'];
+echo "<br/>";
+echo $URI = $_SERVER['DOCUMENT_ROOT'];
+echo "<br/>";
+echo $URI = $_SERVER['HTTP_ACCEPT_LANGUAGE'];
+echo "<br/>";
+
 if(!empty($_FILES['catalog'])){
             $extension=array('jpg', 'png', 'jpeg', 'gif','webp','avif','heic');
             $maxsize = 1048576;

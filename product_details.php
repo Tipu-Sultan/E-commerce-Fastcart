@@ -1,12 +1,7 @@
-<?php 
-include 'nav.php';
-
- ?>
-<?php include 'add_in_cart.php'; ?>
-<br>
-<br>
 
 <?php
+include 'nav.php';
+include 'add_in_cart.php';
 if (isset($_SESSION['user_id']) && isset($_GET['slug-id'])) {
 include 'themancode.php';
 $slug  = $_GET['slug-id'];
@@ -253,8 +248,8 @@ $color = mysqli_query($con,"select * from colors where item_id=$slug_id");
             <div>
                 <div class="row">
                     <?php 
-                    $type = $_GET['type'];
-                    $topitem = mysqli_query($con,"SELECT * FROM items where type='$type' order by name asc");
+                    @$type = $_GET['type'];
+                    @$topitem = mysqli_query($con,"SELECT * FROM items where type='$type' order by name asc");
                     while($top = mysqli_fetch_assoc($topitem)){
                     ?>
                     <div class="col-lg-2 col-md-4 col-sm-6 col-6 mb-4">
@@ -269,7 +264,7 @@ $color = mysqli_query($con,"select * from colors where item_id=$slug_id");
                     width="200"
                     height="200"
                   />
-                  <a href="product_details.php?pid=<?php echo $top['id'] ?>&slug-id=<?php echo $top['slug'] ?>&type=<?php echo $top['type'] ?>">
+                  <a href="product_details.php?pid=<?php echo $top['id'] ?>&slug-id=<?php echo $top['slug'] ?>&type=<?php echo @$top['type'] ?>">
 
                     <div class="mask">
                       <div class="d-flex justify-content-start align-items-end h-100">

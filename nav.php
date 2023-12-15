@@ -131,7 +131,7 @@ ul {
 </div>
 </form>
         <!-- Icon -->
-        <a class="text-reset me-3" href="cart.php?cid=<?php echo $_SESSION['token'] ?>">
+        <a class="text-reset me-3" href="cart.php">
         <i class="fas fa-shopping-cart"></i>
             <span class="badge rounded-pill badge-notification bg-danger"><?php echo $count_cart_items ?></span>
         </a>
@@ -302,7 +302,7 @@ ul {
       <input  type="text" class="form-control" name="query" required="required" placeholder="Search products" onkeyup="searchItems(this.value)" />
       <label class="form-label" for="form1">Search</label>
     </div>
-    <button id="search-button" type="submit" class="btn btn-primary">
+    <button id="search-button" type="submit" class="btn btn-outline-info">
     <i class="fas fa-search"></i>
     </button>
   </div>
@@ -312,7 +312,7 @@ ul {
       <div class="d-flex align-items-center">
         <a href="#" class="btn btn-primary mx-2"  data-mdb-toggle="modal" data-mdb-target="#login">LOGIN</a>
 
-        <a href="#" class="btn btn-primary mx-2"  data-mdb-toggle="modal" data-mdb-target="#sign-in">SIGN-UP</a>
+        <a href="#" class="btn btn-outline-dark mx-2"  data-mdb-toggle="modal" data-mdb-target="#sign-in">SIGN-UP</a>
         </div>
 
       </div>
