@@ -1,8 +1,8 @@
 <?php
-$servername = "x71wqc4m22j8e3ql.cbetxkdyhwsb.us-east-1.rds.amazonaws.com	";
-$username = "vegcuj78pv7itev1";
-$password = "j8wv84ntls6f8zzw";
-$db = "tipspo91cerg8q8n";
+$servername = "sql200.infinityfree.com";
+$username = "if0_35626457";
+$password = "uACZUlW2D8Unhz";
+$db = "if0_35626457_fastcart";
 // Create connection
 $con = new mysqli($servername, $username, $password,$db);
 
