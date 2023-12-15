@@ -1,6 +1,6 @@
 <?php
  
-  
+  include 'themancode.php';
 
   if(isset($_SESSION['user_id'])){
      $uid = $_SESSION['user_id'];
